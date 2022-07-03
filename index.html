@@ -429,21 +429,282 @@ a:hover:after{
 transform: rotateY(180deg);
 }
 
+
+
+
+
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+
+/*
+===================
+===================
+Containers
+===================
+===================
+*/
+.wrapper {
+  width: 80%;
+  max-width: 580px;  
+  margin: 180px auto;
+}
+
+#player {
+  background: #4DB6AC;
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 28px #F48FB1, 
+    0 4px 10px #F48FB1;
+  overflow: hidden;
+}
+
+
+/*
+===================
+===================
+Track
+===================
+===================
+*/
+#track {
+  width: 100%;
+  height: 6px;
+  background: #26A69A;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#progress {
+  width: 0%;
+  height: 100%;
+  background: #009688;
+}
+
+
+/*
+===================
+===================
+Icons
+===================
+===================
+*/
+#controls {
+  padding: 32px 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#controls > div {
+  vertical-align: middle;
+}
+
+.icon {
+  display: inline-block;
+  position: relative;
+  margin: 4px 12px;
+  cursor: pointer;
+}
+
+/* Buttons (Play) */
+#play {
+  position: relative;
+  border-style: solid;
+  border-width: 10px 0 10px 16px;
+  border-color: transparent transparent transparent #26A69A;
+}
+
+#play:hover {
+  border-color: transparent transparent transparent #009688;
+}
+
+/* Buttons (Pause) */
+#pause {
+  position: relative;
+  width: 16px;
+  height: 18px;
+}
+
+#pause:before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 18px;
+  top: 0;
+  left: 0;
+  background: #26A69A;
+}
+
+#pause:after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 18px;
+  top: 0;
+  right: 0;
+  background: #26A69A;
+}
+
+#pause:hover:before,
+#pause:hover:after {
+  background: #009688;
+}
+
+/* Buttons (stop) */
+#stop {
+  width: 18px;
+  height: 18px;
+  background: #26A69A;
+}
+
+#stop:hover {
+  background: #009688;
+}
+
+/* Buttons (Mute) */
+#mute {
+  position: relative;
+  border-style: solid;
+  border-width: 10px 14px 10px 0;
+  border-color: transparent #26A69A transparent transparent;
+}
+
+#mute:after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: 50%;
+  margin-top: -4px;
+  right: -8px;
+  background: #26A69A;
+}
+
+#mute:before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 8px;
+  top: 50%;
+  margin-top: -4px;
+  left: 16px;
+  background: #26A69A;
+  border-radius: 0 100% 100% 0;
+}
+
+#mute:hover,
+.mute {
+  border-color: transparent #009688 transparent transparent !important;
+}
+
+#mute:hover:after,
+.mute:after {
+  background: #009688 !important;
+}
+
+#mute:hover:before,
+.mute:before {
+  content: none !important;
+}
+
+/* Buttons (Volume) */
+#volume {
+  display: inline-block;
+  width: 60px;
+  height: 6px;
+  margin-right: -60px;
+  background: #26A69A;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+#level {
+  width: 100%;
+  height: 100%;
+  background: #009688;
+}
+
+#controls:hover #volume {
+  visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.block {
+  position: relative;
+  width:300px;
+  height: 300px;
+  background: linear-gradient(0deg, #000, #272727);
+}
+
+.block:before, .block:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+    #0000ff, #00ff00,#ffff00, #ff0000);
+  background-size: 900%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.block:after {
+  filter: blur(50px);
+}
+
+
+
+
+
+
+
+
   </style>
   
 <body>
 <center>
-  <div>
-    <img src="https://scontent.fmnl4-4.fna.fbcdn.net/v/t39.30808-6/280535016_3385745025088380_8385766796896552480_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=3mFmcRe-5LMAX-RL2G-&tn=PhKmWekaPvo3_Aoz&_nc_ht=scontent.fmnl4-4.fna&oh=00_AT_8b0w62_bwboHewW82vgwGfhpJmBXlysJLuU0Anfr6MQ&oe=62C302F7" border="0" width="300" height="300"></br>
-    <h1>JOSHUA  MARTIN  LACUESTA  FONTANILLA</h1>
+  <div class="block">
+    <img src="https://scontent.fmnl4-4.fna.fbcdn.net/v/t39.30808-6/280535016_3385745025088380_8385766796896552480_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=3mFmcRe-5LMAX-RL2G-&tn=PhKmWekaPvo3_Aoz&_nc_ht=scontent.fmnl4-4.fna&oh=00_AT_8b0w62_bwboHewW82vgwGfhpJmBXlysJLuU0Anfr6MQ&oe=62C302F7"  width="300" height="300"></br>
+  </div>
+   
+    <h1>Joshua  Martin  Lacuesta  Fontanilla</h1>
 
     <h4><h4 id="matrix" class="auto-style8">JMLF</h4>
 
 
 
-        <font color=red><H5>WEB 3.0 DEVELOPER ⭐ INVESTOR ⭐ POLYGLOT ⭐ CRYPTO ENTHUSIAST ⭐ BLOCKCHAIN DEVELOPER ⭐ FOUNDER @ALIENIFY ⭐ DEVELOPER OF $HOBBYCOIN </H5> </font>
+        <font color=red><H5>WEB 3.0 DEVELOPER ⭐ INVESTOR ⭐ POLYGLOT ⭐ CRYPTO ENTHUSIAST ⭐ BLOCKCHAIN DEVELOPER  ⭐ DEVELOPER OF $HOBBYCOIN </H5> </font>
     </center>
 
     
       <a href="https://fb.com/joshuamartine.fontanilla.5">ENTER HERE</a>
       <br>
+
+
