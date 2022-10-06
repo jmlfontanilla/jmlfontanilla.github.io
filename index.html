@@ -4,7 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JMLF</title>
    
-   
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" language="javascript">
 
 
@@ -374,317 +379,122 @@ a:hover{ color: #000; text-shadow:0px 0px 20px #3399ff, 0px 0px 40px #3399ff;;
 }
 input,select,textarea{ border: 1px #000000 solid; -moz-border-radius: 5px; -webkit-border-radius:5px; border-radius:5px; 
 } 
-.footer {
-position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
-background-color: #00cc11;
-color: white;
-text-align: center;
+.container {
+	width: 1000px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
-a{
-position: absolute;
-top:90%;
-left:50%;
-transform: translate(-50%,-50%);
-color:white;
-height: 60px;
-width: 200px;
-padding-top:15px;
-/*line-height: 60px;*/
-text-align:center;
-font-family: verdana;
-font-size: 24px;
-text-decoration: none;
-text-transform: uppercase;
-letter-spacing: 4px;
+.container .btn {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 250px;
+	height: 50px;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-a:before{
-content: '';
-height: 90px;
-width: 200px;
-position: absolute;
-top: -15px;
-left: 0;
-border-left:2px solid white;
-border-right:2px solid white;
-transition:1s;
+.container .btn a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.05);
+	box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 30px;
+	padding: 10px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	overflow: hidden;
+	color: #fff;
+	font-weight: 400px;
+	z-index: 1;
+	transition: 0.5s;
+	backdrop-filter: blur(15px);
 }
-a:after{
-content: '';
-height: 60px;
-width: 230px;
-position: absolute;
-top: 0;
-left: -15px;
-border-top:2px solid white;
-border-bottom:2px solid white;
-transition:1s;
+.container .btn:hover a {
+	letter-spacing: 3px;
 }
-a:hover:before{
-transform: rotateX(180deg);
+.container .btn a::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+	transform: skewX(45deg) translate(0);
+	transition: 0.5s;
+	filter: blur(0px);
 }
-a:hover:after{
-transform: rotateY(180deg);
+.container .btn:hover a::before {
+	transform: skewX(45deg) translate(200px);
 }
-
-
-
-
-
-
-* {
-  box-sizing: border-box;
-  user-select: none;
+.container .btn::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	bottom: -5px;
+	width: 30px;
+	height: 10px;
+	background: #f00;
+	border-radius: 10px;
+	transition: 0.5s;
+	transition-delay: 0.5;
 }
-
-
-/*
-===================
-===================
-Containers
-===================
-===================
-*/
-.wrapper {
-  width: 80%;
-  max-width: 580px;  
-  margin: 180px auto;
-}
-
-#player {
-  background: #4DB6AC;
-  border-radius: 8px;
-  box-shadow: 
-    0 4px 28px #F48FB1, 
-    0 4px 10px #F48FB1;
-  overflow: hidden;
+.container .btn:hover::before /*lightup button*/ {
+	bottom: 0;
+	height: 50%;
+	width: 80%;
+	border-radius: 30px;
 }
 
-
-/*
-===================
-===================
-Track
-===================
-===================
-*/
-#track {
-  width: 100%;
-  height: 6px;
-  background: #26A69A;
-  overflow: hidden;
-  cursor: pointer;
+.container .btn::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	top: -5px;
+	width: 30px;
+	height: 10px;
+	background: #f00;
+	border-radius: 10px;
+	transition: 0.5s;
+	transition-delay: 0.5;
 }
-
-#progress {
-  width: 0%;
-  height: 100%;
-  background: #009688;
+.container .btn:hover::after /*lightup button*/ {
+	top: 0;
+	height: 50%;
+	width: 80%;
+	border-radius: 30px;
 }
-
-
-/*
-===================
-===================
-Icons
-===================
-===================
-*/
-#controls {
-  padding: 32px 0;
-  text-align: center;
-  vertical-align: middle;
+.container .btn:nth-child(1)::before, /*chnage 1*/
+.container .btn:nth-child(1)::after {
+	background: #ff1f71;
+	box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71,
+		0 0 60px #ff1f71;
 }
-
-#controls > div {
-  vertical-align: middle;
+.container .btn:nth-child(2)::before, /* 2*/
+.container .btn:nth-child(2)::after {
+	background: #2db2ff;
+	box-shadow: 0 0 5px #2db2ff, 0 0 15px #2db2ff, 0 0 30px #2db2ff,
+		0 0 60px #2db2ff;
 }
-
-.icon {
-  display: inline-block;
-  position: relative;
-  margin: 4px 12px;
-  cursor: pointer;
+.container .btn:nth-child(3)::before, /* 3*/
+.container .btn:nth-child(3)::after {
+	background: #1eff45;
+	box-shadow: 0 0 5px #1eff45, 0 0 15px #1eff45, 0 0 30px #1eff45,
+		0 0 60px #1eff45;
 }
-
-/* Buttons (Play) */
-#play {
-  position: relative;
-  border-style: solid;
-  border-width: 10px 0 10px 16px;
-  border-color: transparent transparent transparent #26A69A;
-}
-
-#play:hover {
-  border-color: transparent transparent transparent #009688;
-}
-
-/* Buttons (Pause) */
-#pause {
-  position: relative;
-  width: 16px;
-  height: 18px;
-}
-
-#pause:before {
-  content: "";
-  position: absolute;
-  width: 6px;
-  height: 18px;
-  top: 0;
-  left: 0;
-  background: #26A69A;
-}
-
-#pause:after {
-  content: "";
-  position: absolute;
-  width: 6px;
-  height: 18px;
-  top: 0;
-  right: 0;
-  background: #26A69A;
-}
-
-#pause:hover:before,
-#pause:hover:after {
-  background: #009688;
-}
-
-/* Buttons (stop) */
-#stop {
-  width: 18px;
-  height: 18px;
-  background: #26A69A;
-}
-
-#stop:hover {
-  background: #009688;
-}
-
-/* Buttons (Mute) */
-#mute {
-  position: relative;
-  border-style: solid;
-  border-width: 10px 14px 10px 0;
-  border-color: transparent #26A69A transparent transparent;
-}
-
-#mute:after {
-  content: "";
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  top: 50%;
-  margin-top: -4px;
-  right: -8px;
-  background: #26A69A;
-}
-
-#mute:before {
-  content: "";
-  position: absolute;
-  width: 4px;
-  height: 8px;
-  top: 50%;
-  margin-top: -4px;
-  left: 16px;
-  background: #26A69A;
-  border-radius: 0 100% 100% 0;
-}
-
-#mute:hover,
-.mute {
-  border-color: transparent #009688 transparent transparent !important;
-}
-
-#mute:hover:after,
-.mute:after {
-  background: #009688 !important;
-}
-
-#mute:hover:before,
-.mute:before {
-  content: none !important;
-}
-
-/* Buttons (Volume) */
-#volume {
-  display: inline-block;
-  width: 60px;
-  height: 6px;
-  margin-right: -60px;
-  background: #26A69A;
-  visibility: hidden;
-  cursor: pointer;
-}
-
-#level {
-  width: 100%;
-  height: 100%;
-  background: #009688;
-}
-
-#controls:hover #volume {
-  visibility: visible;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-.block {
-  position: relative;
-  width:300px;
-  height: 300px;
-  background: linear-gradient(0deg, #000, #272727);
-}
-
-.block:before, .block:after {
-  content: '';
-  position: absolute;
-  left: -2px;
-  top: -2px;
-  background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
-    #0000ff, #00ff00,#ffff00, #ff0000);
-  background-size: 900%;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  z-index: -1;
-  animation: steam 20s linear infinite;
-}
-
-@keyframes steam {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
-.block:after {
-  filter: blur(50px);
-}
-
-
-
-
-
-
-
 
   </style>
   
@@ -702,9 +512,36 @@ Icons
 
         <font color=red><H5>WEB 3.0 DEVELOPER ⭐ INVESTOR ⭐ POLYGLOT ⭐ CRYPTO ENTHUSIAST ⭐ BLOCKCHAIN DEVELOPER  ⭐ DEVELOPER OF $HOBBYCOIN </H5> </font>
     </center>
-
     
-      <a href="main.html">ENTER HERE</a>
-      <br>
+ <div class="music-container" id="music-container">
+      <div class="music-info">
+        <h4 id="title"></h4>
+        <div class="progress-container" id="progress-container">
+          <div class="progress" id="progress"></div>
+        </div>
+      </div>
 
+      <audio src="music/wimm.mp3" id="audio"></audio>
 
+      <div class="img-container">
+        <img src="images/ukulele.jpg" alt="music-cover" id="cover" />
+      </div>
+      <div class="navigation">
+        <button id="prev" class="action-btn">
+          <i class="fas fa-backward"></i>
+        </button>
+        <button id="play" class="action-btn action-btn-big">
+          <i class="fas fa-play"></i>
+        </button>
+        <button id="next" class="action-btn">
+          <i class="fas fa-forward"></i>
+        </button>
+      </div>
+    </div>
+
+    <br>
+    <div class="container">
+      <div class="btn"><a href="#">ENTER HERE</a></div>
+    <script src="script.js"></script>
+  </body>
+</html>
